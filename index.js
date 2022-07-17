@@ -48,31 +48,29 @@ function signup() {
 }
 
 function login() {
-    let login_email = document.getElementById('login_email');
-    let login_password = document.getElementById('login_password');
+    let login_email = document.getElementById('login_email').value;
+    let login_password = document.getElementById('login_password').value;
+
+    let isMatch = false;
 
     for (let i = 0; i < users.length; i++) {
-        if (users[i].user_password == login_password.value && users[i].user_email == login_email.value) {
-            localStorage.setItem("logged in", JSON.stringify(users[i]))
-            window.location.href = "./home.html";
-            break
+        if (users[i].user_email === login_email) {
+            if (users[i].user_password === login_password) {
+                localStorage.setItem("logged in", JSON.stringify(users[i]))
+                isMatch = true;
+                window.location.href = "./home.html";
+                break
+            }
         }
-        else if (users[i].user_password !== login_password.value && users[i].user_email !== login_email.value) {
-            // alert("your email or password is incorrect");   
-        }
-        
-        //  if (users[i].user_email !== login_email.value) {
-        //     alert("your email is not registered");
-        // }
-        // else if (users[i].user_password !== login_password.value) {
-        //     alert("your password is incorrect");
-        // }
-    
+    }
+
+    if (!isMatch) {
+        alert("your email or password is incorrect");
     }
 }
 function logout() {
     localStorage.removeItem("logged in");
     window.location.href = "./login.html";
-    
+
 }
 
