@@ -1,0 +1,119 @@
+body{
+    margin: 0px;
+    padding: 0px;}
+    .two , #first a{
+  text-decoration: none;
+    color: rgb(255, 255, 255);
+    cursor: grabbing;
+}
+#first{ margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    display: flex;font-weight: bold;
+    font-style: italic;
+    justify-content: space-between;
+background-color: rgb(58, 43, 43);
+list-style-type: none;  
+}
+fieldset{border-radius: 7px;
+    width: 30%;
+    margin: 10px auto;
+    border: 5px solid rgb(187, 77, 77);
+}     #first  a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }#first li {
+    border-left:1px solid #bbb;
+  }#first li:hover{background-color: #04AA6D;}
+input{border-radius: 5px;
+    height: 25px;
+    width: 97%;border: 3px solid red;
+}input[type=submit] { 
+    cursor: grabbing;
+    transition: all 0.5s ease;
+    width: 200px; 
+    background-color:rgb(172, 55, 55) ;
+    color: white ;
+} input[type=submit]:hover,#abc:hover{
+    color:rgb(172, 55, 55) ;
+    background-color: white ;
+    
+}form>div{
+    text-align: center;
+
+}nav{
+    text-align: right;
+
+}
+
+ #abc{  
+    cursor: grabbing;
+    background-color:rgb(172, 55, 55) ;border-radius: 7px; 
+    border-radius: 5px;
+    width: 90px;
+    margin-top: 5px; }
+ #signup{
+     background-image: url(./images/Wallpaper.jpg );
+     background-repeat: no-repeat;
+     background-size: auto;
+}
+#LOGIN{
+    background-image: url(./images/login\ background.jpg);    
+     background-repeat: no-repeat;
+     background-size: auto;}
+h1,#heading{text-decoration: none;
+    font-size: 2.7vmax;
+    text-align: center ;
+    color:rgb(172, 55, 55) ;
+}
+h1:hover, #heading:hover,legend:hover,label:hover{
+    color:rgb(158, 140, 140) ;
+}
+::placeholder {
+    color: red;
+    text-align: center;
+    text-transform: uppercase;
+    font-style: oblique;}
+  label{
+      color: rgb(172, 55, 55);
+    text-transform: capitalize;
+    font-weight: bolder;
+  }legend{
+    color: rgb(172, 55, 55);
+    text-align: center;
+   font-size: x-large;
+  }
+  
+#mobiles{
+    color: rgb(58, 43, 43);
+}footer{margin-top: 50%;width: 100%;
+    position: fixed;
+}
+.footer{
+    text-transform: uppercase;
+    border-top: 4px solid red;
+background-color: gray;    display: flex; 
+    justify-content: space-around;
+}.abc a{
+text-decoration: none;
+}.abc ul{
+    list-style-type:none ;
+}
+#one,#two,#three{
+    height: 100vh;
+    border: 3px solid blue;
+}
+#one{
+    background-color: rgb(213, 209, 206);
+}
+#two{
+    background-color: rgb(83, 159, 159);
+    background: linear-gradient(to right, rgb(83, 159, 159),rgb(137, 170, 169), rgb(83, 159, 159));
+
+
+}#three{
+    background: linear-gradient(to right, green, rgb(91, 165, 91));
+}
