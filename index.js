@@ -1,16 +1,53 @@
+let page = location.href.split("/");
+page = page[page.length - 1];
 
 let users = []
-let loggedin = []
+let loggedin = {}
 function getAllUsers() {
     let userInStringForm = localStorage.getItem("users");
-    let loggedinForm = localStorage.getItem("loggedin");
+    let loggedinForm = localStorage.getItem("logged in");
     users = JSON.parse(userInStringForm) || [];
-    loggedin = JSON.parse(loggedinForm) || [];
+    loggedin = JSON.parse(loggedinForm);
     console.log(users);
     console.log(loggedin);
 }
 getAllUsers();
 
+function diplayDashboard() {
+    if (page === "home.html") {
+
+        let userName = document.getElementById('userName');
+        let userAddress = document.getElementById('userAddress');
+        let userEmail = document.getElementById('userEmail');
+ 
+        userName.innerText = "User Name : "  +" "+ loggedin.user_firstname + loggedin.user_lastname ;
+        userAddress.innerText = "Address : "  +" "+ loggedin.user_address;
+        userEmail.innerText = "Email : "  +" "+ loggedin.user_email;
+        console.log("loggedin.user_firstname: ", loggedin);
+    }
+}
+diplayDashboard();
+
+
+
+function logincheck() {
+    let logindata = localStorage.getItem("logged in");
+
+    if (page === "login.html" || page === "index.html") {
+
+        if (logindata) {
+            window.location.href = "./home.html";
+        }
+
+    } else {
+        if (!logindata) {
+            window.location.href = "./login.html";
+        }
+    }
+    console.log(logindata);
+    console.log(location.href);
+}
+logincheck();
 function signup() {
     // let message = document.getElementsById('Thanks');
     let firstname = document.getElementById('firstname');
@@ -45,6 +82,7 @@ function signup() {
     }
     // message.innerHTML = "Thanks" +" "+lastname.value + " " + "is successfully sign up";
     // console.log(message);
+    
 }
 
 function login() {
@@ -54,7 +92,9 @@ function login() {
     let isMatch = false;
 
     for (let i = 0; i < users.length; i++) {
+
         if (users[i].user_email === login_email) {
+
             if (users[i].user_password === login_password) {
                 localStorage.setItem("logged in", JSON.stringify(users[i]))
                 isMatch = true;
@@ -69,6 +109,7 @@ function login() {
     }
 }
 function logout() {
+
     localStorage.removeItem("logged in");
     window.location.href = "./login.html";
 
