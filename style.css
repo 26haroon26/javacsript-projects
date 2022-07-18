@@ -31,13 +31,13 @@ fieldset{border-radius: 7px;
 input{border-radius: 5px;
     height: 25px;
     width: 97%;border: 3px solid red;
-}input[type=submit] { 
+}input[type=submit]  { 
     cursor: grabbing;
     transition: all 0.5s ease;
     width: 200px; 
     background-color:rgb(172, 55, 55) ;
     color: white ;
-} input[type=submit]:hover,#abc:hover{
+} input[type=submit]:hover,#abc:hover ,nav button:hover{
     color:rgb(172, 55, 55) ;
     background-color: white ;
     
@@ -46,6 +46,23 @@ input{border-radius: 5px;
 
 }nav{
     text-align: right;
+    padding: 5px;
+    margin: 0px;
+}nav button{
+    cursor: grabbing;
+    transition: all 0.5s ease;
+    background-color:rgb(172, 55, 55) ;
+    color: white ;
+}nav+div {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 10px auto;
+    width: 60%;
+}nav+div>div{
+    width: 60%;
+
+}#firstshow{
+    width: 40%!important;
 
 }
 
