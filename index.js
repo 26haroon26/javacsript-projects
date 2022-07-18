@@ -1,3 +1,4 @@
+
 let page = location.href.split("/");
 page = page[page.length - 1];
 
@@ -7,7 +8,7 @@ function getAllUsers() {
     let userInStringForm = localStorage.getItem("users");
     let loggedinForm = localStorage.getItem("logged in");
     users = JSON.parse(userInStringForm) || [];
-    loggedin = JSON.parse(loggedinForm);
+    loggedin = JSON.parse(loggedinForm) || {};
     console.log(users);
     console.log(loggedin);
 }
@@ -19,10 +20,10 @@ function diplayDashboard() {
         let userName = document.getElementById('userName');
         let userAddress = document.getElementById('userAddress');
         let userEmail = document.getElementById('userEmail');
- 
-        userName.innerText = "User Name : "  +" "+ loggedin.user_firstname + loggedin.user_lastname ;
-        userAddress.innerText = "Address : "  +" "+ loggedin.user_address;
-        userEmail.innerText = "Email : "  +" "+ loggedin.user_email;
+
+        userName.innerText =  loggedin.user_firstname + loggedin.user_lastname;
+        userAddress.innerText =  loggedin.user_address;
+        userEmail.innerText =  loggedin.user_email;
         console.log("loggedin.user_firstname: ", loggedin);
     }
 }
@@ -44,10 +45,27 @@ function logincheck() {
             window.location.href = "./login.html";
         }
     }
+
     console.log(logindata);
     console.log(location.href);
 }
 logincheck();
+function signupCheck() {
+    let signupdata = localStorage.getItem("users");
+
+    if (page === "index.html") {
+            
+            if (signupdata) {
+                window.location.href = "./login.html";
+            }
+    
+        } else {
+            if (!signupdata) {
+                window.location.href = "./signup.html";
+            }
+        }
+}
+signupCheck();
 function signup() {
     // let message = document.getElementsById('Thanks');
     let firstname = document.getElementById('firstname');
@@ -82,7 +100,7 @@ function signup() {
     }
     // message.innerHTML = "Thanks" +" "+lastname.value + " " + "is successfully sign up";
     // console.log(message);
-    
+
 }
 
 function login() {
@@ -114,4 +132,3 @@ function logout() {
     window.location.href = "./login.html";
 
 }
-
