@@ -61,7 +61,7 @@ function signupCheck() {
     
         } else {
             if (!signupdata) {
-                window.location.href = "./signup.html";
+                window.location.href = "./index.html";
             }
         }
 }
