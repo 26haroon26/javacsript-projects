@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="header">
+            <form onsubmit="newElement();return false;">
+                <h2>To Do List</h2>
+                <input type="text" id="myInput" placeholder="Title..." required>
+                <input type="button" class="addBtn" value="Add">
+            </form>
+        </div>
+
+        <ul id="myUL">
+            <li>Practise the codes</li>
+            <li class="checked">Organise my notes</li>
+        </ul>
+    </div>
+    <button type="button" id="clear-list" onclick="removeAll()">Clear</button>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
