@@ -11,15 +11,12 @@
 </head>
 
 <body>
-    <div style="display:flex; justify-content: space-between;">
+    <div id="flex">
 
         <form action="#">
-            <input type="radio" id="pencil" name="pencil" value="pencil">
-            <label for="pencil"><i class="fa-solid fa-pencil"></i></label>
-            <input type="radio" id="square" name="square" value="square">
-            <label for="square"><i class="fa-light fa-square"></i></label>
-            <input type="radio" id="circle" name="circle" value="circle">
-            <label for="circle"><i class="fa-light fa-circle"></i></label>
+            <i id="pencil" class="fa-solid fa-pencil"></i>
+            <i id="square" class="fa-solid fa-square"></i>
+            <i id="circle" class="fa-solid fa-circle"></i>
             <label for="color">Color</label>
             <input type="color" name="color" id="color" >
             <label for="size">Size</label>
@@ -31,133 +28,98 @@
         </div>
     </div>
     
-    <canvas id="myCanvas" width="800px" height="600px">
+    <canvas id="myCanvas" width="600px" height="600px">
     </canvas>
-<a target="_blank" id="savedImage">savedImage</a>
     <script src="index.js"></script>
 
 
 </body>
 
-</html>
-<!DOCTYPE html>
-<html lang="en">
+</html> 
 
+
+
+
+
+
+<!-- <!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
-
+<meta charset="UTF-8" />
+<title>Canvas Test</title>
 </head>
-<style>
-    canvas {
-        border: 1px solid red;
-    }
-</style>
-
 <body>
+<header> </header>
+<nav> </nav>
+<section>
+
+<div>
+<canvas id="canvas" width="600" height="600">
+This text is displayed if your browser does not support HTML5 Canvas.
+</canvas>
+</div>
+
+<script type="text/javascript">
+var canvas;
+var ctx;
+
+function init() {
+canvas = document.getElementById("canvas");
+ctx = canvas.getContext("2d");
+draw();
+}
 
 
+function draw() {
 
+ctx.fillStyle = '#FA6900';
+// ctx.shadowOffsetX = 9;
+// ctx.shadowOffsetY = 9;
+// ctx.shadowBlur    = 7;
+ctx.shadowColor   = 'rgba(204, 204, 204, 0.5)';
+ctx.fillRect(0,0,30,150);
+// ctx.save();
 
-    <div style="display:flex; justify-content: space-between;"> -->
+ctx.fillStyle = '#E0E4CD';
+// ctx.shadowOffsetX = 10;
+// ctx.shadowOffsetY = 10;
+// ctx.shadowBlur    = 4;
+ctx.shadowColor   = 'rgba(204, 204, 204, 0.5)';
+ctx.fillRect(30,0,30,150);
+ctx.save();
 
-        <form action="#">
-            <input type="radio" id="pencil" name="pencil" value="pencil">
-            <label for="pencil"><i class="fa-solid fa-pencil"></i></label>
-            <input type="radio" id="square" name="square" value="square">
-            <label for="square"><i class="fa-light fa-square"></i></label>
-            <input type="radio" id="circle" name="circle" value="circle">
-            <label for="circle"><i class="fa-light fa-circle"></i></label>
-            <label for="color">Color</label>
-            <input type="color" name="color" id="color">
-            <label for="size">Size</label>
-            <input type="range" name="size" id="size" value="6">
-        </form>
-        <div id="forimage">
-            <button onclick="forReset()">Reset</button>
-            <button onclick="forSave()">Save</button>
-        </div>
-    </div>
+ctx.fillStyle = '#A7DBD7';
+// ctx.shadowOffsetX = 15;
+// ctx.shadowOffsetY = 15;
+// ctx.shadowBlur    = 4;
+// ctx.shadowColor   = 'rgba(204, 204, 204, 0.5)';
+ctx.fillRect(60,0,45,150);
+// ctx.save();
 
-    <canvas id="myCanvas" width="800px" height="600px">
-    </canvas>
-    <a target="_blank" id="savedImage">savedImage</a>
+ctx.restore();
+ctx.beginPath();
+ctx.arc(185, 75, 22, 0, Math.PI*2, true);
+console.log(ctx.arc(185, 75, 22, 0, Math.PI*2, true));
+ctx.closePath();
+ctx.fill();
 
+ctx.restore();
+ctx.beginPath();
+ctx.arc(260, 75, 15, 0, Math.PI*2, true);
+ctx.closePath();
+ctx.fill();
 
+ctx.restore();
+ctx.beginPath();
+ctx.arc(305, 75, 20, 0, Math.PI*2, true);
+ctx.closePath();
+ctx.fill();
+}
 
-    <!-- <input type="text" id="ab1" onclick="check('ab1')">
-    <input type="text" id="ab2" onclick="check('ab2')">
-    <input type="text" id="ab3" onclick="check('ab3')">
-    <input type="text" id="ab4" onclick="check('ab4')"> -->
-    <script>
-
-
-
-        let pencil = document.getElementById("pencil").value;
-        let square = document.getElementById("square").value;
-        let circle = document.getElementById("circle").value;
-        let color = document.getElementById("color");
-        let size = document.getElementById("size");
-        let canva = document.getElementById("myCanvas");
-        let ctx = canva.getContext("2d");
-        var strDataURI = canva.toDataURL();
-        let isMouseDown = false;
-        let startx,
-            starty,
-            endx,
-            endy;
-            let ctxCopy = '';
-
-
-        canva.addEventListener("mousedown", (event) => {
-            startx = event.offsetX;
-            starty = event.offsetY;
-            isMouseDown = true;
-            ctxCopy = JSON.stringify(ctx);
-        });
-        canva.addEventListener("mouseup", (event) => {
-            endx = event.offsetX;
-            endy = event.offsetY;
-            isMouseDown = false;
-
-
-            ctx.strokeRect(startx, starty, endx, endy);
-            ctx.stroke();
-        });
-
-        canva.addEventListener('mousemove', (event) => {
-            if (isMouseDown) {
-
-                ctx = JSON.parse(ctxCopy)
-                ctx.strokeRect(startx, starty, event.offsetX, event.offsetY);
-                ctx.stroke();
-            }
-
-        });
-        startx = "";
-        starty = "";
-        endx = "";
-        endy = "";
-        function forReset() {
-            ctx.clearRect(0, 0, canva.width, canva.height);
-            var w = canva.width;
-            canva.width = 0;
-            canva.width = w;
-        }
-        function forSave() {
-            console.log(canva.toDataURL());
-            document.getElementById("savedImage").href = `${canva.toDataURL()}`;
-        }
-
- // function check(ide) {
-        //     document.getElementById(ide).value;
-        //     console.log(document.getElementById(ide).value);
-        //     console.log("ide :", ide);
-        // }
-    </script>
+init();
+</script>
+</section>
+<aside> </aside>
+<footer> </footer>
 </body>
-
-</html>
+</html> -->
