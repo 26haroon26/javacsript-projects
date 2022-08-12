@@ -60,21 +60,29 @@ canva.addEventListener("mousedown", (event) => {
 // ctx.restore();
 // ctx.strokeRect(startx, starty, endx, endy);
 canva.addEventListener("mouseup", (event) => {
-  endx = event.offsetX;
-  endy = event.offsetY;
-  isMouseDown = false;
-
-  ctx.strokeStyle = color.value;
-  ctx.lineWidth = size.value;
-  ctx.strokeRect(startx, starty, endx, endy);
-  ctx.stroke();
-  // ctx.save();
+    endx = event.offsetX;
+    endy = event.offsetY;
+    isMouseDown = false;
+    let  xaxis = endx - startx;
+    let  yaxis = endy - starty;
+        if (endx === startx && endy === starty) {
+        ctx.strokeStyle = color.value;
+        ctx.lineWidth = size.value;
+        ctx.strokeRect(0, 0, 0, 0);
+        ctx.stroke();
+    } else {
+        ctx.strokeStyle = color.value;
+        ctx.lineWidth = size.value;
+        ctx.strokeRect(startx, starty, xaxis, yaxis);
+        ctx.stroke();
+        // ctx.save();
+    }
+    console.log("startx ",startx);
+    startx = "";
+    starty = "";
+    endx = "";
+    endy = "";
 });
-startx = "";
-starty = "";
-endx = "";
-endy = "";
-
 function getid(a) {
   value = `${a}`;
   console.log(value);
