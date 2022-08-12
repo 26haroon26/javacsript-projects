@@ -33,21 +33,31 @@ let startx, starty, endx, endy;
 // });
 
 // for circle
-
-// canva.addEventListener("mousedown", (event) => {
-//   startx = event.offsetX;
-//   starty = event.offsetY;
-//   isMouseDown = true;
+//canva.addEventListener("mousedown", (event) => {
+//     startx = event.offsetX;
+//     starty = event.offsetY;
+//     isMouseDown = true;
 // });
 // canva.addEventListener("mouseup", (event) => {
-//   endx = event.offsetX;
-//   endy = event.offsetY;
-//   isMouseDown = false;
-//   ctx.beginPath();
-//     ctx.strokeStyle = color.value;
-// ctx.lineWidth = size.value;
-//   ctx.arc(startx, starty, event.offsetY - starty , 0, 2 * Math.PI);
-//   ctx.stroke();
+//     endx = event.offsetX;
+//     endy = event.offsetY;
+//     isMouseDown = false;
+//     let  radius = event.offsetY - starty;
+//     console.log(radius);
+//     if (radius < 0) {
+//         radius =  starty - event.offsetY;
+//         ctx.beginPath();
+//         ctx.strokeStyle = color.value;
+//         ctx.lineWidth = size.value;
+//         ctx.arc(startx, starty,radius , 0, 2 * Math.PI);
+//         ctx.stroke();    
+//     }else{
+//         ctx.beginPath();
+//         ctx.strokeStyle = color.value;
+//         ctx.lineWidth = size.value;
+//         ctx.arc(startx, starty,radius , 0, 2 * Math.PI);
+//         ctx.stroke();
+//     }
 // });
 
 canva.addEventListener("mousedown", (event) => {
