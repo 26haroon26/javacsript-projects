@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <button id="logout" onclick="logout()">Logout</button>
+    </nav>
+    <div>
+        <div id="firstshow">
+            <p>User Name :</p>
+            <p>User Email :</p>
+            <p>User Number :</p>
+            <p>User Address :</p>
+        </div>
+        <div>
+            <p id="userName"></p>
+            <p id="userEmail"></p>
+            <p id="userNumber"></p>
+            <p id="userAddress"></p>
+        </div>
+    </div>
+
+<div id="foredit">
+
+    <!-- w3schools -->
+    <button id="myBtn" class="btn">Edit</button>
+
+    <div id="myModal" class="modal">
+
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <br><br>
+
+            <input type="text" id="updateName"><br>
+            <input type="email" id="updateEmail"><br>
+            <input type="number" id="updateNumber"><br>
+            <input type="text" id="updateAddress"><br>
+            
+            <button onclick="edit()"class="btn">OK</button>
+        </div>
+        
+    </div>
+</div>
+    <script src="index.js"></script>
+</body>
+
+</html>

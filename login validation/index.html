@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <a href="assignment/index.html" target="_blank">Image Slider</a>
+    <a href="paralex web/index.html" target="_blank">Paralex Web</a>
+    <a href="ecommerce/index.html" target="_blank">Ecommerce</a>
+
+    <h1 id="heading">
+        "WELCOME TO THIS WEBSITE"
+    </h1>
+    <p id="alertsign"></p>
+    <fieldset id="sign">
+        <legend id="leg"><b>Sign Up Form </b></legend>
+        <form onsubmit="signup(); return false;">
+            <br>
+            <label for="firstname">Name :</label>
+            <br>
+            <input type="text" id="firstname" required placeholder="name"><br>
+            <label for="no">Number :</label>
+            <br>
+            <input type="number" id="no" required placeholder="number"><br>
+
+            <label for="email">Email :</label><br>
+            <input type="email" id="email" required placeholder="Email"><br>
+
+            <label for="password">Password :</label>
+            <br>
+            <div id="input">
+                <i onclick="eye()" id="icon" class="fa-solid fa-eye "></i>
+                <input type="password" id="password" required placeholder="password"><br>
+            </div>
+            
+            <label for="confirmpassword">Confirm Password :</label>
+            <br>
+            <input type="password" id="confirmpassword" required placeholder="confirmpassword"><br>
+            <label for="address">Address :</label>
+            <br>
+            <input type="text" id="address" required placeholder="address"><br><br>
+            <div>
+                Already have an account <a href="login.html">Click..</a>
+                <br><br>
+                <input type="submit" value="Sign Up"><br>
+            </div>
+
+
+        </form>
+    </fieldset>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
